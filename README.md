@@ -8,14 +8,14 @@ QA by Skye Sheng
 ## Project Charter
 <!-- toc -->
 ### Vision 
-This project is an attempt to build chat based ETL tool. While the Extraction functionalities can be added to complete the tool, for current work only Transformation and Loading aspect of data pipeline will be done. Idea is for the tool to be chat based where a user inputs his requirement in simple plain english (few words or a sentence) and the tool performs the action. Example : User inputs " I want to join 2 tables". The tool should understand that a join operation is to be carried out and based on it ask for necessary inputs from the user. A sequence of transformation will be carried out on intermediate dataframes to build the complete datapipeline. 
+This project is an attempt to build a chat based ETL tool. While the Extraction functionalities can be added to complete the tool, for current work only Transformation and Loading aspect of data pipeline will be done. Idea is for the tool to be chat based where a user inputs his requirement in simple plain english (few words or a sentence) and the tool performs the action. Example : User inputs " I want to join 2 tables". The tool should understand that a join operation is to be carried out and based on it ask for necessary inputs from the user. A sequence of transformation will be carried out on intermediate dataframes to build the complete datapipeline based on user's input in english sentences. 
 
 ### Mission
 The tool will help avoid writing multiple scripts. Will particularly be useful for people with not much of a technical background to play with data. 
 
 ### Success Criteria
-For the text classificatio part a high precision is necessary. An accuracy of over 90% is necessary for the tool to be usable. With more user entries the data will keep on expanding in the ideal scenario. (This feature will not be incorporated. The model will be trained once on a data prepared manually) 
-Once the right transformation the user is trying to do is identified the execution of those transformations to be performed correctly. The transformation functionalities may not end up being exhaustive but an attempt will be to cover a decent operations.
+For the text classification (mapping the sentences to ETL operation) part a high precision is necessary. An accuracy of over 90% is necessary for the tool to be usable. With more user entries the data will keep on expanding in the ideal scenario. (This feature will not be incorporated. The model will be trained once on a data prepared manually) 
+Once the right transformation is identified the execution of those transformations should be performed correctly. The transformation functionalities may not end up being exhaustive but an attempt will be to cover a decent number of operations.
 
 
 
