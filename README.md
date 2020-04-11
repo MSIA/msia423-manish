@@ -14,7 +14,7 @@ This project is an attempt to build a chat based ETL tool. While the Extraction 
 The tool will help avoid writing multiple scripts. Will particularly be useful for people with not much of a technical background to play with data. 
 
 ### Success Criteria
-For the text classification (mapping the sentences to ETL operation) part a high precision is necessary. An accuracy of over 90% is necessary for the tool to be usable. With more user entries the data will keep on expanding in the ideal scenario. (This feature will not be incorporated. The model will be trained once on a data prepared manually) 
+For the text classification (mapping the sentences to ETL operation) a high precision is necessary. An accuracy of over 90% is necessary for the tool to be usable. With more user entries the data will keep on expanding in the ideal scenario. (This feature will not be incorporated. The model will be trained once on a data prepared manually) 
 Once the right transformation is identified the execution of those transformations should be performed correctly. The transformation functionalities may not end up being exhaustive but an attempt will be to cover a decent number of operations.
 
 <!-- toc -->
