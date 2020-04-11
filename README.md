@@ -17,7 +17,26 @@ The tool will help avoid writing multiple scripts. Will particularly be useful f
 For the text classification (mapping the sentences to ETL operation) part a high precision is necessary. An accuracy of over 90% is necessary for the tool to be usable. With more user entries the data will keep on expanding in the ideal scenario. (This feature will not be incorporated. The model will be trained once on a data prepared manually) 
 Once the right transformation is identified the execution of those transformations should be performed correctly. The transformation functionalities may not end up being exhaustive but an attempt will be to cover a decent number of operations.
 
+<!-- toc -->
 
+## Sprint Plan
+For the next 3 sprints (Each sprint of 3 weeks) the epics are:
+#### Epic-1 
+* Identify the right platform to host data ( Redshift - AWS or BigQuery- GCP)
+* Create a Dataset (A collection of related tables)
+* Create data manually for the text classification
+
+#### Epic-2
+* Text classification model building and tuning
+* Save the model in pickel format
+
+#### Epic-3
+* Python script having generalized function to perform operation on the relational tables 
+* Shell script to wrap all the functionalities in one
+
+#### Epic-4
+* Build the front end app
+* Performing sanity check using test cases
 
 <!-- toc -->
 
