@@ -22,30 +22,30 @@ Once the right transformation is identified the execution of those transformatio
 ## Sprint Plan
 ### Initiative 1 : Loading demo Data on cloud, building data for text classification training
 #### Epic-1 
-* Install Docker, anaconda and python libraries
-* Perform an end to end run of pennylane to check the availability of every requirement
+* Story 1: Install Docker, anaconda and python libraries
+* Story 2: Perform an end to end run of pennylane to check the availability of every requirement
 #### Epic-2
-* Identify the right platform to host data ( Redshift - AWS or BigQuery- GCP)
-* Create a Dataset (A collection of related tables)
+* Story 1: Identify the right platform to host data ( Redshift - AWS or BigQuery- GCP)
+* Story 2: Create a Dataset (A collection of related tables)
 #### Epic-2
-* Create data manually for the text classification
-* Split the dataset into train and test
+* Story 1: Create data manually for the text classification
+* Story 2: Split the dataset into train and test
 
 ### Initiative 2 : Model training
 #### Epic1
-* Choosing the right vectoriser (count or tf-idf should suffice, as corpus size should not be huge for current study)
-* Perform standard text cleaning
+* Story 1: Choosing the right vectoriser (count or tf-idf should suffice, as corpus size should not be huge for current study)
+* Story 2: Perform standard text cleaning
 #### Epic2
-* Train the model on the set and check for its accuracy
-* Save the model in pickel format
+* Story 1: Train the model on the set and check for its accuracy
+* Story 2: Save the model in pickel format
 
 ### Initiative 3 : Generic script for carrying out ETL operation, Integration with front end
 #### Epic-1
-* Python script having generalized function to perform operation on the relational tables 
-* Shell script to wrap all the functionalities in one
+* Story 1: Python script having generalized function to perform operation on the relational tables 
+* Story 2: Shell script to wrap all the functionalities in one
 #### Epic-2
-* Build the front end app
-* Performing sanity check using test cases
+* Story 1: Build the front end app
+* Story 2: Performing sanity check using test cases
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
