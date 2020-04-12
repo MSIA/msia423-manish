@@ -20,21 +20,30 @@ Once the right transformation is identified the execution of those transformatio
 <!-- toc -->
 
 ## Sprint Plan
-For the next 3 sprints (Each sprint of 3 weeks) the epics are:
-#### Epic-1 
+### Initiative 1 : Loading demo Data on cloud, building data for text classification training
+#### * Epic-1 
+* Install Docker, anaconda and python libraries
+* Perform an end to end run of pennylane to check the availability of every requirement
+#### * Epic-2
 * Identify the right platform to host data ( Redshift - AWS or BigQuery- GCP)
 * Create a Dataset (A collection of related tables)
+#### * Epic-2
 * Create data manually for the text classification
+* Split the dataset into train and test
 
-#### Epic-2
-* Text classification model building and tuning
+### Initiative 2 : Model training
+#### * Epic1
+* Choosing the right vectoriser (count or tf-idf should suffice, as corpus size should not be huge for current study)
+* Perform standard text cleaning
+#### * Epic2
+* Train the model on the set and check for its accuracy
 * Save the model in pickel format
 
-#### Epic-3
+### Initiative 3 : Generic script for carrying out ETL operation, Integration with front end
+#### Epic-1
 * Python script having generalized function to perform operation on the relational tables 
 * Shell script to wrap all the functionalities in one
-
-#### Epic-4
+#### Epic-2
 * Build the front end app
 * Performing sanity check using test cases
 
