@@ -32,10 +32,10 @@ Once the right transformation is identified the execution of those transformatio
 * Story 2: Split the dataset into train and test
 
 ### Initiative 2 : Model training
-#### Epic1
+#### Epic-1
 * Story 1: Choosing the right vectoriser (count or tf-idf should suffice, as corpus size should not be huge for current study)
 * Story 2: Perform standard text cleaning
-#### Epic2
+#### Epic-2
 * Story 1: Train the model on the set and check for its accuracy
 * Story 2: Save the model in pickel format
 
