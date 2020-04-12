@@ -21,21 +21,21 @@ Once the right transformation is identified the execution of those transformatio
 
 ## Sprint Plan
 ### Initiative 1 : Loading demo Data on cloud, building data for text classification training
-#### * Epic-1 
+#### Epic-1 
 * Install Docker, anaconda and python libraries
 * Perform an end to end run of pennylane to check the availability of every requirement
-#### * Epic-2
+#### Epic-2
 * Identify the right platform to host data ( Redshift - AWS or BigQuery- GCP)
 * Create a Dataset (A collection of related tables)
-#### * Epic-2
+#### Epic-2
 * Create data manually for the text classification
 * Split the dataset into train and test
 
 ### Initiative 2 : Model training
-#### * Epic1
+#### Epic1
 * Choosing the right vectoriser (count or tf-idf should suffice, as corpus size should not be huge for current study)
 * Perform standard text cleaning
-#### * Epic2
+#### Epic2
 * Train the model on the set and check for its accuracy
 * Save the model in pickel format
 
