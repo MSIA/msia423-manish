@@ -27,7 +27,7 @@ Once the right transformation is identified the execution of those transformatio
 #### Epic-2
 * Story 1: Identify the right platform to host data ( Redshift - AWS or BigQuery- GCP)
 * Story 2: Create a Dataset (A collection of related tables)
-#### Epic-2
+#### Epic-3
 * Story 1: Create data manually for the text classification
 * Story 2: Split the dataset into train and test
 
