@@ -10,50 +10,47 @@ QA by Skye Sheng
 ## Project Charter
 <!-- toc -->
 ### Vision 
-This project is an attempt to build a chat based ETL tool. There are manyy ETTL tools in the market which comes with a hefty subscription charge. This project will demonstrate building an in house ETL tool catered to the organisations need. While the Extraction functionalities can be added to complete the tool, for current work only Transformation and Loading aspect of data pipeline will be done.  
+A doctor's time is of an extreme importance. A no show on an appointment with a doctor means the time being stolen by someone who actually needed it. This project aims to quantify the possibility of a person not showing up for his appointment. Based on the entries provided by the person a Machine Learning algorithm will be used to train on a historical data and output prediction containing the probability of a person not showing up.  
 
 ### Mission
-The tool will help avoid writing multiple scripts. Will particularly be useful for people with not much of a technical background to play with data. Idea is for the tool to be chat based where a user inputs his requirement in simple plain english (few words or a sentence) and the tool performs the action. Example : User inputs " I want to join 2 tables". The tool should understand that a join operation is to be carried out and based on it ask for necessary inputs from the user. A sequence of transformation will be carried out on intermediate dataframes to build the complete datapipeline based on user's input in english sentences.
+This project is going to assist hospitals and clinics in order to book their appointments in right number. If there are too many patients having a high probability of not showing up on a particular day they might book more. This is not only going to increase the revenue of the clinics but also help out someone who actually needs a consultation. 
 
 ### Success Criteria
-For the text classification (mapping the sentences to ETL operation) a high precision is necessary. An accuracy of over 90% is necessary for the tool to be usable. With more user entries the data will keep on expanding in the ideal scenario. (This feature will not be incorporated. The model will be trained once on a data prepared manually) 
-Once the right transformation is identified the execution of those transformations should be performed correctly. The transformation functionalities may not end up being exhaustive but an attempt will be to cover a decent number of operations.
+To assess the performance of model Lift analysis will be used. More commonly used metrics like accuracy, precision or AUC-ROC(Area under the curve- Receiver Operating Charecteristics) is not being used here because the project is going to provide a soft classification rendering these methods not applicable here. 
+Business impact of the project is going to be studied using a carefully designed experiments. A/B testing to be done on clinics and there revenues as the response variable to be monitored over 6 months period of time. Current assumption is that revenues will be normally distributed and therefore Welch's Test will be used keeping a p-value of 0.05. 
 
 <!-- toc -->
 
 ## Sprint Plan
-### Initiative 1 : Loading demo Data on cloud, building data for text classification training
+### Initiative 1 : Loading Data on cloud and creating the environment
 #### Epic-1 
-* Story 1: Install Docker, anaconda and python libraries
-* Story 2: Perform an end to end run of pennylane to check the availability of every requirement
+* Story 1 (1 pt): Install Docker, anaconda and python libraries
+* Story 2 (3 pt): Perform an end to end run of pennylane to check the availability of every requirement
 #### Epic-2
-* Story 1: Identify the right platform to host data ( Redshift - AWS or BigQuery- GCP)
-* Story 2: Create a Dataset (A collection of related tables)
-#### Epic-3
-* Story 1: Create data manually for the text classification
-* Story 2: Split the dataset into train and test
+* Story 1 (1 pt): Place the .CSV file on the staging area (S3 AWS)
+* Story 2 (1 pt): Host the data from .CSV file on Redshift
 
 ### Initiative 2 : Model training
 #### Epic-1
-* Story 1: Choosing the right vectoriser (count or tf-idf should suffice, as corpus size should not be huge for current study)
-* Story 2: Perform standard text cleaning
+* Story 1 (2 pt): Perform Exploratory Data Analysis and look for any trends or skewness in the data
+* Story 2 (2 pt): Perform Data cleaning or transformation as per requirement
 #### Epic-2
-* Story 1: Train the model on the set and check for its accuracy
-* Story 2: Save the model in pickle format
+* Story 1 (5 pt): Train the model on the dataset after splitting it in k-fold
+* Story 3 (3 pt): Finetune the best model using k-fold crossvalidation and save the model in pickel format
 
-### Initiative 3 : Generic script for carrying out ETL operation, Integration with front end
+### Initiative 3 : Building Web based app and performing A/B testing
 #### Epic-1
-* Story 1: Python script having generalized function to perform operation on the relational tables 
-* Story 2: Shell script to wrap all the functionalities in one
+* Story 1 (5 pt): Building fromt end that prompts user to enter the needed information for rating prediction
 #### Epic-2
-* Story 1: Build the front end app
-* Story 2: Performing sanity check using test cases
+* Story 1 (5 pt): Identifying the treatment and control group for A/B testing
+* Story 2 (5 pt): Providing the app to the control group and monitoring the revenues 
+* Story 3 (2 pt): Using t-test to find the usefulness of the app
 
 <!-- toc -->
 ## Backlog
-* I1E1
-* I1E2
-* I1E3
+* I1E1 (Completed)
+* I1E2 (Planned)
+* I1E3 (Planned)
 
 <!-- toc -->
 ## Icebox
@@ -61,6 +58,7 @@ Once the right transformation is identified the execution of those transformatio
 * I2E2
 * I3E1
 * I3E2
+* I3E3
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
