@@ -1,0 +1,4 @@
+file_to_upload : data/KaggleV2-May-2016.csv
+bucket_name : nw-manish-s3
+object_name : AVC_project/raw_no_show_data.csv
+loc_database : AWS
