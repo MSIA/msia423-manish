@@ -60,9 +60,15 @@ Business impact of the project is going to be studied using a carefully designed
 * I3E2
 * I3E3
 
-## Setting the environment variables
 <!-- toc -->
-As a
+## Setting the environment variables
+As a first step the environment variables need to be set. Please change the place holder values in the .mysqlconfig and .awsconfig files. Next run the following commands :
+
+`echo 'source .awsconfig' >> ~/.bashrc
+source ~/.bashrc
+echo 'source .mysqlconfig' >> ~/.bashrc
+source ~/.bashrc`
+
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 
