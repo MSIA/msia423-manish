@@ -67,11 +67,11 @@ Business impact of the project is going to be studied using a carefully designed
 
 
 - [Directory structure](#directory-structure)
-- [Build the docker image](#Build the docker image)
-- [To copy file on S3](#To copy file on S3)
-- [To create Database locally](#To create Database locally)
-- [To create Database on AWS RDS](#To create Database on AWS RDS)
-- [Setting the environment variables](#Setting the environment variables)
+- [Build the docker image](#Build-the-docker-image)
+- [To copy file on S3](#To-copy-file-on-S3)
+- [To create Database locally](#To-create-Database-locally)
+- [To create Database on AWS RDS](#To-create-Database-on-AWS-RDS)
+- [Setting the environment variables](#Setting-the-environment-variables)
 - [Running the app](#running-the-app)
   * [1. Initialize the database](#1-initialize-the-database)
     + [Create the database with a single song](#create-the-database-with-a-single-song)
@@ -136,7 +136,7 @@ Business impact of the project is going to be studied using a carefully designed
 ├── run_docker.sh                     <- Bash script to run the Docker image
 ├── Dockerfile                        <- dockerfile 
 ├── .mysqlconfig                      <- config file Database environment variable
-├── .awscongig                        <- config file for aws environment variable
+├── .awsconfig                        <- config file for aws environment variable
 ```
 
 <!-- tocstop -->
