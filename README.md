@@ -139,7 +139,7 @@ Business impact of the project is going to be studied using a carefully designed
 ├── .awscongig                        <- config file for aws environment variable
 ```
 
-<!-- toc -->
+<!-- tocstop -->
 ## Setting the environment variables
 As a first step the environment variables need to be set. Please change the place holder values in the .mysqlconfig and .awsconfig files. Next run the following commands :
 
@@ -151,13 +151,13 @@ As a first step the environment variables need to be set. Please change the plac
 
 `source ~/.bashrc`
 
-
+<!-- tocstop -->
 ## Build the docker image
 The docker file lies in the root directory. 
 `docker build -t s3_rds . `
 
 This command will the build the docker image s3_rds
-
+<!-- tocstop -->
 ## To copy file on S3
 The data for this project can be found on https://www.kaggle.com/joniarroba/noshowappointments. This data has been made available by Joni Hoppen and licensed under https://creativecommons.org/licenses/by-nc-sa/4.0/ terms. Once downloaded place the .csv file in the data folder or update the config/parameter.yaml file with the location of the data. Also, update the bucket name, and address and name of the file intended to be kept on s3.
 Next, run the following command to pjut the file on S3 :
@@ -165,7 +165,7 @@ Next, run the following command to pjut the file on S3 :
 `winpty sh run_docker.sh copy`
 
 run_docker.sh is a script in root directory that accepts an argument, either 'copy' or 'db' to copy a file on S3 or creatind a database locally or on AWS RDS respectively. The `winpty` command in the beginnig can be dropped for mac and linux users.
-
+<!-- tocstop -->
 ## To create Database locally
 In order to create a database locally the same script is run with a 'db' argument. However, update 'loc_database' to 'local' in the config/parameter.yaml file.
 
@@ -174,7 +174,7 @@ Run the following command
 `winpty sh run_docker.sh db`
 
 This will create a no_show.db in the data folder.
-
+<!-- tocstop -->
 ## To create Database on AWS RDS
 In order to create a database locally the same script is run with a 'db' argument. However, update 'loc_database' to 'AWS' in the config/parameter.yaml file.
 
