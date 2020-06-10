@@ -16,9 +16,6 @@ if [ $1 = 'copy' ];
 then
         python3 src/copy_to_s3.py
 
-else
-        python3 src/rds_db.py
-
 elif [ $1 = 'db' ];
 
 then
