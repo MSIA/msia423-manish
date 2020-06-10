@@ -16,16 +16,14 @@ if [ $1 = 'copy' ];
 then
         python3 src/copy_to_s3.py
 
-<<<<<<< 65334ba81790dcc863ba55086bfd204ae9b61609:app/run.sh
 else
         python3 src/rds_db.py
-=======
+
 elif [ $1 = 'db' ];
 
 then
 
 	python3 src/rds_db.py
->>>>>>> final code:app/run.sh
 
 elif [ $1 = 'features' ];
 
