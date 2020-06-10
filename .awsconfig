@@ -1,7 +1,3 @@
-<<<<<<< 65334ba81790dcc863ba55086bfd204ae9b61609
 export aws_access_key_id=<enter your key>
 export aws_secret_access_key=<Enetr the secret key>
-=======
-export aws_access_key_id=AKIAIL3PRJJ7RDC5KVEA
-export aws_secret_access_key=n3KuQcC8Dcluj/oKjlh+o1J4YlEe8rvOF40i0FAc
->>>>>>> final code
+
