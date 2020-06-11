@@ -8,12 +8,14 @@ HOST = "0.0.0.0"
 SQLALCHEMY_ECHO = False  # If true, SQL for queries made will be printed
 MAX_ROWS_SHOW = 100
 
+
+
 # Connection string
-DB_HOST = os.environ.get('MYSQL_HOST')
-DB_PORT = os.environ.get('MYSQL_PORT')
-DB_USER = os.environ.get('MYSQL_USER')
-DB_PW = os.environ.get('MYSQL_PASSWORD')
-DATABASE = os.environ.get('DATABASE_NAME')
+DB_HOST = 'nw-manish-423.cmqeocuq67tb.us-east-2.rds.amazonaws.com'
+DB_PORT = 3306
+DB_USER = <User>
+DB_PW = <Password>
+DATABASE = 'msia423_db'
 DB_DIALECT = 'mysql+pymysql'
 SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
 if SQLALCHEMY_DATABASE_URI is not None:
