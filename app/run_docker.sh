@@ -25,11 +25,6 @@ else
     docker run -v "$(pwd)":"$(pwd)" -it \
     --env aws_access_key_id \
     --env aws_secret_access_key \
-    --env MYSQL_HOST \
-    --env MYSQL_PORT \
-    --env MYSQL_USER \
-    --env MYSQL_PASSWORD \
-    --env DATABASE_NAME \
     s3_rds app/run.sh $1
 
 fi
