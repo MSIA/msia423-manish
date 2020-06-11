@@ -142,9 +142,6 @@ As a first step the environment variables need to be set. Please change the plac
 
 `source ~/.bashrc`
 
-`echo 'source .mysqlconfig' >> ~/.bashrc`
-
-`source ~/.bashrc`
 
 <!-- tocstop -->
 ## Build the docker image
