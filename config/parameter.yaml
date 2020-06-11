@@ -7,3 +7,9 @@ populate : False
 load_file_address : data/file_to_load.csv
 model : AVC_project/model.pkl
 model_local : data/xgboost.pkl
+MYSQL_USER : admin
+MYSQL_PASSWORD : Manish!123
+MYSQL_HOST : nw-manish-423.cmqeocuq67tb.us-east-2.rds.amazonaws.com
+MYSQL_PORT : 3306
+DATABASE_NAME : msia423_db
+
