@@ -1,6 +1,0 @@
-export MYSQL_USER=<enter the username>
-export MYSQL_PASSWORD=<enter the password>
-export MYSQL_HOST=nw-manish-423.cmqeocuq67tb.us-east-2.rds.amazonaws.com
-export MYSQL_PORT=3306
-export DATABASE_NAME=msia423_db
-
