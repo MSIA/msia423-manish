@@ -30,7 +30,7 @@ port = cred_list["MYSQL_PORT"]
 database = cred_list["DATABASE_NAME"]
 
 engine_string = "{}://{}:{}@{}:{}/{}".format(conn_type, user, password, host, port, database)
-print (engine_string)
+
 Base = declarative_base()  
 
 logging.basicConfig(filename='config/logging/msia423.log', level=logging.DEBUG)
