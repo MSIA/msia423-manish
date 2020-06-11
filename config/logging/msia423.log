@@ -1,2 +1,12 @@
 INFO:msia423-demo:Database: msia423.db created successfully
 INFO:msia423-demo:Table: no_show created in database successfully
+INFO:msia423-demo:Database: msia423.db created successfully
+INFO:msia423-demo:Table: no_show created in database successfully
+INFO:msia423-demo:Database: msia423.db created successfully
+INFO:msia423-demo:Table: no_show created in database successfully
+INFO:msia423-demo:Database: msia423.db created successfully
+INFO:msia423-demo:Table: no_show created in database successfully
+ERROR:msia423-demo:(sqlite3.InterfaceError) Error binding parameter 5 - probably unsupported type.
+[SQL: INSERT INTO no_show ("Gender", "Age", "Scholarship", "Hipertension", "Diabetes", "Alcoholism", "Handcap", "SMS_received", "Interval", "Show_No_show") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('F', 62L, 0L, 1L, 0L, ['Alcoholism'], 0L, 0L, 0, 'No')]
+(Background on this error at: http://sqlalche.me/e/rvf5)

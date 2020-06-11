@@ -1,4 +1,9 @@
 file_to_upload : data/KaggleV2-May-2016.csv
 bucket_name : nw-manish-s3
 object_name : AVC_project/raw_no_show_data.csv
-loc_database : local
+cleaned_file : AVC_project/cleaned_data.csv
+loc_database : AWS
+populate : False
+load_file_address : data/file_to_load.csv
+model : AVC_project/model.pkl
+model_local : data/xgboost.pkl

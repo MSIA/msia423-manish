@@ -34,7 +34,7 @@ def upload_file(file_name, bucket, object_name=None):
     
     try:
         response = s3_client.upload_file(file_name, bucket, object_name)
-        print ("File uploaded")
+
         logger.info("File upladed to S3 ")
     except ClientError as e:
         logger.info("File upload failed")
@@ -45,7 +45,7 @@ def upload_file(file_name, bucket, object_name=None):
 
 cred_list = {}
 
-print ("Copying the file to S3")
+
 with open(r'config/parameter.yaml') as file:
     cred_list = yaml.load(file, Loader=yaml.FullLoader)
 

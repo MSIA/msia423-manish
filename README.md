@@ -188,106 +188,42 @@ The created database can be checked and queried using the command below :
 
 `winpty sh run_mysql_client.sh`
 
+## To build features
+To build the feature we run the same command with 'features' as the argument
+`winpty sh app/run_docker.sh features`
+This will create a file on S3 directly which is clean has all the features and ready for training. The testing script for the features is in the test folder
 
+## To train the model
+To train the model (XGBoost) same command is to be run with 'model' as the argument.
+`winpty sh app/run_docker.sh model`
 
+## Building the pipeline
+In order to run the entire pipeline in the order
+> copy raw data to s3 > build databse > clean data and featurise > build model
+the same command is to be run but the argument becomes 'all'
+`winpty sh app/run_docker.sh all`
+
+## Testing
+In testing the function in featurise.py script under src folder is tested. The command is same but the argument is 'test' 
+`winpty sh app/run_docker.sh test`
+
+Quite clearly app/run_docker.sh is the single entry for all the functionalities.
 
 ## Running the app
-### 1. Initialize the database 
+Much like above a single script is the entry point for the 2 apps one for adding a record to the database and other for getting predictions.
+### Building the docker image
+The dockerfile is placed in the app folder. Run the below command to build the image
+`docker build -f app/Dockerfile -t no_show .`
 
-#### Create the database with a single song 
-To create the database in the location configured in `config.py` with one initial song, run: 
+### Adding records to database (AWS RDS)
+To run the app that adds record using the front end use the following command
+`winpty sh app/run_docker_app.sh add_db`
 
-`python run.py create_db --engine_string=<engine_string> --artist=<ARTIST> --title=<TITLE> --album=<ALBUM>`
-
-By default, `python run.py create_db` creates a database at `sqlite:///data/tracks.db` with the initial song *Radar* by Britney spears. 
-#### Adding additional songs 
-To add an additional song:
-
-`python run.py ingest --engine_string=<engine_string> --artist=<ARTIST> --title=<TITLE> --album=<ALBUM>`
-
-By default, `python run.py ingest` adds *Minor Cause* by Emancipator to the SQLite database located in `sqlite:///data/tracks.db`.
-
-#### Defining your engine string 
-A SQLAlchemy database connection is defined by a string with the following format:
-
-`dialect+driver://username:password@host:port/database`
-
-The `+dialect` is optional and if not provided, a default is used. For a more detailed description of what `dialect` and `driver` are and how a connection is made, you can see the documentation [here](https://docs.sqlalchemy.org/en/13/core/engines.html). We will cover SQLAlchemy and connection strings in the SQLAlchemy lab session on 
-##### Local SQLite database 
-
-A local SQLite database can be created for development and local testing. It does not require a username or password and replaces the host and port with the path to the database file: 
-
-```python
-engine_string='sqlite:///data/tracks.db'
-
-```
-
-The three `///` denote that it is a relative path to where the code is being run (which is from the root of this directory).
-
-You can also define the absolute path with four `////`, for example:
-
-```python
-engine_string = 'sqlite://///Users/cmawer/Repos/2020-MSIA423-template-repository/data/tracks.db'
-```
+### Making predictions
+To run the app for making predictions using the front end use the following command 
+`winpty sh app/run_docker_app.sh predict`
+The prediction will be shown on the webpage itself
 
 
-### 2. Configure Flask app 
 
-`config/flaskconfig.py` holds the configurations for the Flask app. It includes the following configurations:
 
-```python
-DEBUG = True  # Keep True for debugging, change to False when moving to production 
-LOGGING_CONFIG = "config/logging/local.conf"  # Path to file that configures Python logger
-HOST = "0.0.0.0" # the host that is running the app. 0.0.0.0 when running locally 
-PORT = 5000  # What port to expose app on. Must be the same as the port exposed in app/Dockerfile 
-SQLALCHEMY_DATABASE_URI = 'sqlite:///data/tracks.db'  # URI (engine string) for database that contains tracks
-APP_NAME = "penny-lane"
-SQLALCHEMY_TRACK_MODIFICATIONS = True 
-SQLALCHEMY_ECHO = False  # If true, SQL for queries made will be printed
-MAX_ROWS_SHOW = 100 # Limits the number of rows returned from the database 
-```
-
-### 3. Run the Flask app 
-
-To run the Flask app, run: 
-
-```bash
-python app.py
-```
-
-You should now be able to access the app at http://0.0.0.0:5000/ in your browser.
-
-## Running the app in Docker 
-
-### 1. Build the image 
-
-The Dockerfile for running the flask app is in the `app/` folder. To build the image, run from this directory (the root of the repo): 
-
-```bash
- docker build -f app/Dockerfile -t pennylane .
-```
-
-This command builds the Docker image, with the tag `pennylane`, based on the instructions in `app/Dockerfile` and the files existing in this directory.
- 
-### 2. Run the container 
-
-To run the app, run from this directory: 
-
-```bash
-docker run -p 5000:5000 --name test pennylane
-```
-You should now be able to access the app at http://0.0.0.0:5000/ in your browser.
-
-This command runs the `pennylane` image as a container named `test` and forwards the port 5000 from container to your laptop so that you can access the flask app exposed through that port. 
-
-If `PORT` in `config/flaskconfig.py` is changed, this port should be changed accordingly (as should the `EXPOSE 5000` line in `app/Dockerfile`)
-
-### 3. Kill the container 
-
-Once finished with the app, you will need to kill the container. To do so: 
-
-```bash
-docker kill test 
-```
-
-where `test` is the name given in the `docker run` command.

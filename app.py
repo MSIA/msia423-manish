@@ -1,10 +1,38 @@
+"""
+This script primarily adds a record to an existing database using a frontend. This data can be used for training of the model
+
+Written By - Manish Kumar
+"""
+
 import traceback
 from flask import render_template, request, redirect, url_for
 import logging.config
-# from app.models import Tracks
 from flask import Flask
-from src.add_songs import Tracks
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, MetaData
+
+Base = declarative_base()
+class no_show(Base):
+    """Create a data model for the database to captire features and response """
+    __tablename__ = 'no_show'
+    PatientId = Column(Integer, primary_key=True)
+    Gender = Column(String(10), unique=False, nullable=False)
+    Age = Column(Integer, unique=False, nullable=False)
+    Scholarship = Column(Integer, unique=False, nullable=False)
+    Hipertension = Column(Integer, unique=False, nullable=False)
+    Diabetes = Column(Integer, unique=False, nullable=False)
+    Alcoholism = Column(Integer, unique=False, nullable=False)
+    Handcap = Column(Integer, unique=False, nullable=False)
+    SMS_received = Column(Integer, unique=False, nullable=False)
+    Interval = Column(Integer, unique=False, nullable=False)
+    Show_No_show = Column(String(100), unique=False, nullable=True)
+
+    def __repr__(self):
+        return '<no_show %r>' % self.Show_No_show
+
+
+
 
 
 # Initialize the Flask application
@@ -25,9 +53,9 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
-    """Main view that lists songs in the database.
+    """Main view that lists records in the database.
 
-    Create view into index page that uses data queried from Track database and
+    Create view into index page that uses data queried from msia423_db database and
     inserts it into the msiapp/templates/index.html template.
 
     Returns: rendered html template
@@ -35,27 +63,27 @@ def index():
     """
 
     try:
-        tracks = db.session.query(Tracks).limit(app.config["MAX_ROWS_SHOW"]).all()
+        tracks = db.session.query(no_show).limit(app.config["MAX_ROWS_SHOW"]).all()
         logger.debug("Index page accessed")
         return render_template('index.html', tracks=tracks)
     except:
         traceback.print_exc()
-        logger.warning("Not able to display tracks, error page returned")
+        logger.warning("Not able to display no_show, error page returned")
         return render_template('error.html')
 
 
 @app.route('/add', methods=['POST'])
 def add_entry():
-    """View that process a POST with new song input
+    """Function for collecting inputs from the front end and pushing them to the database
 
     :return: redirect to index page
     """
 
     try:
-        track1 = Tracks(artist=request.form['artist'], album=request.form['album'], title=request.form['title'])
-        db.session.add(track1)
+        no_show1 = no_show(Gender=request.form['Gender'], Age=request.form['Age'], Scholarship=request.form['Scholarship'],Hipertension=request.form['Hypertension'], Diabetes=request.form['Diabetes'], Alcoholism=request.form['Alcoholism'],Interval=request.form['Interval'], Handcap=request.form['Handcap'], SMS_received=request.form['SMS_received'], Show_No_show = request.form['Show(Yes/No)'])
+        db.session.add(no_show1)
         db.session.commit()
-        logger.info("New song added: %s by %s", request.form['title'], request.form['artist'])
+        logger.info("New data added")
         return redirect(url_for('index'))
     except:
         logger.warning("Not able to display tracks, error page returned")

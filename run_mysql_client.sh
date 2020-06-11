@@ -13,3 +13,4 @@ mysql \
 -h${MYSQL_HOST} \
 -u${MYSQL_USER} \
 -p${MYSQL_PASSWORD}
+#--local-infile msia423_db

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="static/basic.css" rel="stylesheet">
+</head>
+
+<body>
+    <h3>
+         <a href = "{{ url_for('index') }}">Patient Show or No-show</a>
+    </h3>
+
+    <hr/>
+    <table>
+         <thead>
+            <tr>
+               <th>Gender</th>
+               <th>Age</th>
+               <th>Scholarship</th>
+                <th>Hypertension</th>
+                <th>Diabetes</th>
+                <th>Alcoholism</th>
+                <th>Handcap</th>
+                <th>SMS_received</th>
+                <th>Interval</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for no_show in no_shows %}
+               <tr>
+                   <td>{{ no_show.Gender }}</td>
+                   <td>{{ no_show.Age }}</td>
+                   <td>{{ no_show.Scholarship }}</td>
+                   <td>{{ no_show.Hypertension }}</td>
+                   <td>{{ no_show.Diabetes }}</td>
+                   <td>{{ no_show.Alcoholism }}</td>
+                   <td>{{ no_show.Handcap }}</td>
+                   <td>{{ no_show.SMS_received }}</td>
+                   <td>{{ no_show.Interval }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      <form action="{{ url_for('predict') }}" method=post class=predict>
+      <dl>
+        <input type=text size=15 name=Gender placeholder="Gender">
+        <input type=text size=15 name=Age placeholder="Age">
+        <input type=text size=15 name=Scholarship placeholder="Scholarship">
+          <input type=text size=15 name=Hypertension placeholder="Hypertension">
+        <input type=text size=15 name=Diabetes placeholder="Diabetes">
+        <input type=text size=15 name=Alcoholism placeholder="Alcoholism">
+          <input type=text size=15 name=Handcap placeholder="Handcap">
+        <input type=text size=15 name=SMS_received placeholder="SMS_received">
+        <input type=text size=15 name=Interval placeholder="Interval">
+        <input type=submit value=Predict>
+      </dl>
+    </form>
+    <p style="font-family:Arial;color:#d46868;margin-left:20px"> The prediction is: </p>
+    <p style="font-family:Arial;color:#ff0066;margin-left:40px;font-weight: bold"> {{ prediction }}</p>
+</body>
+</html>
