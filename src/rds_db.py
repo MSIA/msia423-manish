@@ -16,13 +16,21 @@ import logging
 import yaml
 import pandas as pd
 
+
+cred_list = {}
+# Upload the file
+with open(r'config/parameter.yaml') as file:
+    cred_list = yaml.load(file, Loader=yaml.FullLoader)
+
 conn_type = "mysql+pymysql"
-user = os.environ.get("MYSQL_USER")
-password = os.environ.get("MYSQL_PASSWORD")
-host = os.environ.get("MYSQL_HOST")
-port = os.environ.get("MYSQL_PORT")
-database = os.environ.get("DATABASE_NAME")
+user = cred_list["MYSQL_USER"]
+password = cred_list["MYSQL_PASSWORD"]
+host = cred_list["MYSQL_HOST"]
+port = cred_list["MYSQL_PORT"]
+database = cred_list["DATABASE_NAME"]
+
 engine_string = "{}://{}:{}@{}:{}/{}".format(conn_type, user, password, host, port, database)
+print (engine_string)
 Base = declarative_base()  
 
 logging.basicConfig(filename='config/logging/msia423.log', level=logging.DEBUG)
@@ -48,10 +56,7 @@ class no_show(Base):
         return '<no_show %r>' % self.Show_No_show
 
 # set up mysql connection
-cred_list = {}
-# Upload the file
-with open(r'config/parameter.yaml') as file:
-    cred_list = yaml.load(file, Loader=yaml.FullLoader)
+
 
 if (cred_list['loc_database'] == 'AWS') :
  #   try:
